@@ -1,0 +1,6 @@
+#include "src/Coordinate.h"
+#include "src/Coordinates.h"
+#include "src/Geo.h"
+#include "src/Latitude.h"
+#include "src/Longitude.h"
+

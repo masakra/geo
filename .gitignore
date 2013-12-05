@@ -1,0 +1,8 @@
+*.o
+Makefile
+*.pro
+*.pro-e
+lib*.so
+lib*.so.*
+.*.swp
+
