@@ -43,6 +43,8 @@ class Coordinate
 
 		std::string strShort( const char * format, char positive, char negative ) const;
 
+		virtual void bound() = 0;
+
 	public:
 		Coordinate();
 
@@ -56,11 +58,16 @@ class Coordinate
 
 		bool operator%( double other ) const;
 
+		Coordinate & operator+=( double val );
+
+		Coordinate & operator-=( double val );
+
 		/*
 		\\	static
 		*/
 
-		static double gmsc2g( const std::string & g, const std::string & m, const std::string & s, const std::string & c );
+		static double gmsc2g( const std::string & g, const std::string & m, const std::string & s,
+				const std::string & c );
 };
 
 #endif

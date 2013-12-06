@@ -32,6 +32,8 @@
 #ifndef GEO_H
 #define GEO_H
 
+#include "Coordinates.h"
+
 namespace geo {
 
 #define EARTH_RADIUS 6372795.0
@@ -54,6 +56,27 @@ double nm2m( double nm );
 
 double m2nm( double m );
 
+double ortodromiaRad( const Coordinates & from, const Coordinates & to );
+
+double ortodromia( const Coordinates & from, const Coordinates & to );
+
+double feet2m( double feet );
+
+double m2feet( double m );
+
+double knot2kmh( double knot );
+
+Coordinates newCoordinatesRad( const Coordinates & point, double ath, double rad );
+
+double trueCourseRad( const Coordinates & from, const Coordinates & to );
+
+double trueCourseDeg( const Coordinates & from, const Coordinates & to );
+
+int m2fl( int m );
+
+Coordinates centerBetween( const Coordinates & c1, const Coordinates & c2 );
+
+double distanceToOrto( const Coordinates & point, const Coordinates & ortoFrom, const Coordinates & ortoTo );
 };
 
 #endif

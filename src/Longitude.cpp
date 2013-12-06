@@ -68,7 +68,7 @@ Longitude::operator%( Longitude longitude ) const
 std::string
 Longitude::strShort() const
 {
-	return Coordinate::strShort( "%c%03.0f°%03.1f′", geo::North, geo::South );
+	return Coordinate::strShort( "%c%03.0f°%04.1f′", geo::West, geo::East );
 }
 
 Longitude

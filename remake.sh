@@ -5,6 +5,7 @@ MODULES_DEL="core gui"
 GMAKE="/usr/local/bin/gmake"
 QMAKE="/usr/local/bin/qmake-qt4"
 COMPILER=clang
+CXX_FLAGS="-m64 -mmmx -msse -msse2 -msse3"
 #INCLUDEPATH="../geo"
 #LIBS="-L../geo -lgeo"
 
@@ -18,6 +19,9 @@ then
 
 	echo "QT -= ${MODULES_DEL}" >> ${TARGET}.pro;
 	echo "modules \"${MODULES_DEL}\" was removed.";
+
+	echo "QMAKE_CXXFLAGS += ${CXX_FLAGS}" >> ${TARGET}.pro;
+	echo "C++ flags \"${CXX_FLAGS}\" was added.";
 
 	# includepath
 	#echo "INCLUDEPATH += ${INCLUDEPATH}" >> ${TARGET}.pro;

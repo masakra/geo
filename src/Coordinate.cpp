@@ -31,7 +31,7 @@
 #include <stdlib.h>
 
 Coordinate::Coordinate()
-	: value( nan( 0 ) )
+	: value( nan( "" ) )
 {
 }
 
@@ -61,8 +61,8 @@ Coordinate::strShort( const char * format, char positive, char negative ) const
 
 	snprintf( str, STR_BUF_SIZE, format,
 			( value > 0 ? positive : negative ),
-			i,
-			f * 60. );
+			fabs( i ),
+			fabs( f ) * 60. );
 
 	return std::string( str );
 }
@@ -89,5 +89,21 @@ Coordinate::gmsc2g( const std::string & g, const std::string & m, const std::str
 		ci = strtol( c.c_str(), 0, 10 );
 
 	return gi + mi / 60.0 + ( si + ci / 100.0 ) / 3600.0;
+}
+
+Coordinate &
+Coordinate::operator+=( double val )
+{
+	value += val;
+
+	bound();
+
+	return *this;
+}
+
+Coordinate &
+Coordinate::operator-=( double val )
+{
+	return operator+=( -val );
 }
 

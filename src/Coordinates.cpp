@@ -27,6 +27,7 @@
 #include "Coordinates.h"
 
 Coordinates::Coordinates()
+	:latitude(), longitude()
 {
 }
 
@@ -58,5 +59,11 @@ Coordinates
 Coordinates::fromMercator( double x, double y )		// static
 {
 	return Coordinates( Longitude::fromMercator( x ), Latitude::fromMercator( y ) );
+}
+
+bool
+Coordinates::operator==( const Coordinates & other ) const
+{
+	return latitude == other.latitude && longitude == other.longitude;
 }
 

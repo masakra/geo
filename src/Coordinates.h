@@ -50,6 +50,8 @@ class Coordinates
 
 		bool isValid() const;
 
+		bool operator==( const Coordinates & other ) const;
+
 		/*
 		\\	static
 		*/
